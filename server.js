@@ -8,8 +8,7 @@ var passport = require("./config/passport");
 var db = require("./models");
 // db.connect({
 //   host: process.env.DB_HOST,
-//   username: process.env.DB_USER,
-//   password: process.env.DB_PASS,
+//   username: process.env.DB_USER
 // });
 var exphbs = require("express-handlebars"); //AG
 // Creating express app and configuring middleware needed for authentication

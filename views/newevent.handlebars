@@ -1,0 +1,72 @@
+<br>
+<br>
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+
+            <h2>Create New Event</h2>
+            <br>
+
+            <br>
+            <div class="row">
+                <form class="col-md-12 form-group">
+                    <div class="row">
+                        <div class="input-field col">
+                            <label for="event_name">Event Name</label>
+                            <input id="eventname-input" type="text">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col">
+                            {{!-- <label for="event_date">Event Date and Time (YYYY-MM-DD HR:MM:SS)</label> --}}
+                            <label for="location">Date</label>
+                            <input id="eventdate-input" type="text">
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="input-field col">
+                            {{!-- <label for="event_date">Event Date and Time (YYYY-MM-DD HR:MM:SS)</label> --}}
+                            <label for="location">Time</label>
+                            <input id="eventtime-input" type="text">
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="input-field col">
+                            <label for="location">Location</label>
+                            <input id="location-input" type="text">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col">
+                            <label for="descripton">Description</label>
+                            <input id="description-input" type="text">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col">
+                            <label for="invited">Invite your friends:</label>
+                            <select multiple class="form-control" id="invited-input">
+                                {{#each users}}
+                                <option value="{{this.id}}">{{this.firstname}} {{this.lastname}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" id="newevent" class="button">Submit</button>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<br>
+<a href="/members">← Back to the List of Events Page</a>
+<br>
+<br>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/newevent.js"></script>

@@ -1,11 +1,16 @@
 module.exports = function (sequelize, DataTypes) {
   var Event = sequelize.define("Event", {
     name: DataTypes.STRING,
-    movie: DataTypes.STRING,
-    dateAndTime: DataTypes.DATE,
+    eventDate: DataTypes.STRING,
+    time: DataTypes.STRING,
     location: DataTypes.STRING,
     description: DataTypes.TEXT,
-    user: DataTypes.STRING,
+    email: {
+      type: DataTypes.STRING,
+      validate: {
+        isEmail: true,
+      },
+    },
     fullname: DataTypes.STRING,
   });
 
@@ -13,7 +18,7 @@ module.exports = function (sequelize, DataTypes) {
   //     Event.hasMany(models.Comment, {
   //       onDelete: "cascade",
   //     }),
-  //       Event.hasMany(models.Invitee, {
+  //       Event.hasMany(models.Invitee, {n
   //         onDelete: "cascade",
   //       });
   //   };

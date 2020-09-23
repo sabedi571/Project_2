@@ -8,7 +8,8 @@ var passport = require("./config/passport");
 var db = require("./models");
 // db.connect({
 //   host: process.env.DB_HOST,
-//   username: process.env.DB_USER
+//   username: process.env.DB_USER,
+//   password: process.env.DB_PASS,
 // });
 var exphbs = require("express-handlebars"); //AG
 // Creating express app and configuring middleware needed for authentication
@@ -17,7 +18,8 @@ var app = express();
 
 var db = require("./models"); //AG
 // Setting up port and requiring models for syncing
-var PORT = process.env.PORT || 8080;
+
+var PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

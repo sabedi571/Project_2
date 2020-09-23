@@ -8,12 +8,18 @@ module.exports = function (app) {
   // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
     res.json(req.user);
+
+    //res.json("/members"); - replace? AG
+
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/api/signup", function (req, res) {
+
+    console.log(req.body);
+
     db.User.create({
       firstname: req.body.firstname,
       lastname: req.body.lastname,
@@ -50,5 +56,21 @@ module.exports = function (app) {
         id: req.user.id,
       });
     }
+  });
+
+  app.post("/api/newevent", function (req, res) {
+    //res.sendFile(path.join(__dirname, "../public/members.html"));
+
+    // post new event with sequelize here
+    // event will be sent on the request body (req.body)
+    db.Event.create(req.body)
+      .then((dbEvent) => {
+        console.log(dbEvent);
+        // res.render("newevent");
+        res.redirect("/members");
+      })
+      .catch((err) => {
+        res.status(501).json(err);
+      });
   });
 };

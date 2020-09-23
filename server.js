@@ -18,6 +18,7 @@ var app = express();
 
 var db = require("./models"); //AG
 // Setting up port and requiring models for syncing
+
 var PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));

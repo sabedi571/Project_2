@@ -53,6 +53,19 @@ module.exports = function (app) {
       });
     }
   });
+  //Get all users
+  app.get("/api/users", function (req, res) {
+    db.User.findAll({}).then(function (dbUser) {
+      res.json(dbUser);
+    });
+  });
+
+  //Get one user
+  app.get("/api/users/:id", function (req, res) {
+    db.User.findOne({ where: { id: req.params.id } }).then(function (dbUser) {
+      res.json(dbUser);
+    });
+  });
 
   app.post("/api/newevent", function (req, res) {
     //res.sendFile(path.join(__dirname, "../public/members.html"));
@@ -69,4 +82,18 @@ module.exports = function (app) {
         res.status(501).json(err);
       });
   });
+  // app.post("/api/newevent", function (req, res) {
+  //   console.log(req.body);
+  //   db.Event.create({
+  //     name: req.body.eventInput,
+  //     eventDate: req.body.dateInput,
+  //     time: req.body.timeInput,
+  //     location: req.body.locationInput,
+  //     description: req.body.descriptionInput,
+  //     email: req.body.email,
+  //     fullname: req.body.fullname,
+  //   }).then(function (dbEvent) {
+  //     res.json(dbEvent);
+  //   });
+  // });
 };

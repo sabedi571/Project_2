@@ -9,6 +9,9 @@ $(document).ready(function () {
   var descriptionInput = $("input#description-input");
   var invitedInput = $("#invited-input");
 
+  console.log("This is data from newevent.js");
+  console.log(data);
+
   $("#newevent").click(function (event) {
     event.preventDefault();
 
@@ -62,7 +65,7 @@ $(document).ready(function () {
         $.post("/api/newevent", {
           eventInput: eventInput,
           dateInput: dateInput,
-          dateInput: timeInput,
+          timeInput: timeInput,
           locationInput: locationInput,
           descriptionInput: descriptionInput,
           email: email,

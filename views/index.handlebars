@@ -1,7 +1,31 @@
-<br>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/logout">
+                Logout
+            </a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h2>Welcome <span class="member-name"></span></h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <button class="btn btn-primary "><a href="/newevent" id="newEventBtn">
+                    Create a New Event</a></button>
+        </div>
+    </div>
+</div>
+
+
+{{!-- <br>
 <br>
 <button class="btn btn-primary "><a href="/newevent" id="newEventBtn">
-        Create a New Event</a></button>
+        Create a New Event</a></button> --}}
 
 <br>
 <br>
@@ -11,7 +35,7 @@
     <li data-id="{{this.id}}" class="list-group-item">
         <p><strong>Event Name : </strong><a id="namelink" href="event/{{this.id}}">{{this.name}}</a></p>
         {{!-- <p><strong>Date and Time :</strong> {{this.dateAndTime}}</p> --}}
-        <p><strong>Date :</strong> {{this.date}}</p>
+        <p><strong>Date :</strong> {{this.eventDate}}</p>
         <p><strong>Time :</strong> {{this.time}}</p>
         <p><strong>Host :</strong> {{this.fullname}}</p>
 
@@ -22,4 +46,4 @@
 </ul>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<script src="/js/members.js"></script>
+<script type="text/javascript" src="js/members.js"></script>

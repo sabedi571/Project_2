@@ -7,17 +7,16 @@ module.exports = function (app) {
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
+    console.log("=========logged in===========");
     res.json(req.user);
 
     //res.json("/members"); - replace? AG
-
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/api/signup", function (req, res) {
-
     console.log(req.body);
 
     db.User.create({
@@ -43,12 +42,17 @@ module.exports = function (app) {
 
   // Route for getting some data about our user to be used client side
   app.get("/api/user_data", function (req, res) {
+    console.log("================");
+    console.log("checking user_data");
     if (!req.user) {
       // The user is not logged in, send back an empty object
+      console.log("found no user");
       res.json({});
     } else {
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
+      console.log("found user with data:");
+      console.log(req.user);
       res.json({
         firstname: req.user.firstname,
         lastname: req.user.lastname,
@@ -56,6 +60,11 @@ module.exports = function (app) {
         id: req.user.id,
       });
     }
+  });
+
+  app.get("/blah", function (req, res) {
+    console.log("blah route");
+    res.status(200).send(true);
   });
   //Get all users
   // app.get("/api/users", function (req, res) {

@@ -9,10 +9,29 @@ $(document).ready(function () {
   var descriptionInput = $("input#description-input");
   var invitedInput = $("#invited-input");
 
+  $(".testbutton").on("click", (e) => {
+    e.preventDefault();
+    console.log("hit test button");
+    $.ajax({
+      url: "/blah",
+      method: "GET",
+    }).then((response) => {
+      console.log("got back from blah");
+      console.log(response);
+    });
+  });
+
   $("#newevent").click(function (event) {
     event.preventDefault();
+    console.log("newevent clicked. call get user_data");
 
-    $.get("/api/user_data").then(function (data) {
+    //$.get("/api/user_data").then(function (data) {
+    $.ajax({
+      url: "/api/user_data",
+      method: "GET",
+    }).then(function (data) {
+      console.log("got back data from get user_data:");
+      console.log(data);
       var eventData = {
         eventInput: eventInput.val().trim(),
         dateInput: dateInput.val().trim(),

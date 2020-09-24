@@ -9,17 +9,17 @@ $(document).ready(function () {
   var descriptionInput = $("input#description-input");
   var invitedInput = $("#invited-input");
 
-  $(".testbutton").on("click", (e) => {
-    e.preventDefault();
-    console.log("hit test button");
-    $.ajax({
-      url: "/blah",
-      method: "GET",
-    }).then((response) => {
-      console.log("got back from blah");
-      console.log(response);
-    });
-  });
+  // $(".testbutton").on("click", (e) => {
+  //   e.preventDefault();
+  //   console.log("hit test button");
+  //   $.ajax({
+  //     url: "/blah",
+  //     method: "GET",
+  //   }).then((response) => {
+  //     console.log("got back from blah");
+  //     console.log(response);
+  //   });
+  // });
 
   $("#newevent").click(function (event) {
     event.preventDefault();

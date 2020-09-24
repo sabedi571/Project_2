@@ -48,6 +48,7 @@ module.exports = function (app) {
 
       dbEvent.forEach(function (event) {
         events.push({
+          id: event.id,
           name: event.name,
           eventDate: event.eventDate,
           time: event.time,
@@ -98,6 +99,30 @@ module.exports = function (app) {
       console.log("////////////");
     });
   });
+
+  app.get("/event/:id", function (req, res) {
+    db.Event.findOne({
+      where: { id: req.params.id },
+      //include: [db.Comment, db.Invitee],
+    }).then(function (dbEvent) {
+      console.log(dbEvent.name);
+      console.log(dbEvent.location);
+
+      let sel_event = {
+        id: dbEvent.id,
+        name: dbEvent.name,
+        eventDate: dbEvent.eventDate,
+        time: dbEvent.time,
+        location: dbEvent.location,
+        description: dbEvent.description,
+        fullname: dbEvent.fullname,
+      };
+      res.render("event", {
+        sel_event: sel_event,
+      });
+    });
+  });
+
   // Render 404 page for any unmatched routes
   app.get("*", function (req, res) {
     res.render("404");

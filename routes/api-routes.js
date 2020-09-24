@@ -131,4 +131,18 @@ module.exports = function (app) {
         res.status(501).json(err);
       });
   });
+
+  //get invitees for event
+  // app.get("/api/newinvitee", function (req, res) {
+  //   db.Invitee.findAll({}).then(function (dbInvitee) {
+  //     res.json(dbInvitee);
+  //   });
+  // });
+
+  // //post invitees for event
+  // app.post("/api/newinvitee", function (req, res) {
+  //   db.Invitee.create(req.body).then(function (dbInvitee) {
+  //     res.json(dbInvitee);
+  //   });
+  // });
 };

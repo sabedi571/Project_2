@@ -62,10 +62,10 @@ module.exports = function (app) {
     }
   });
 
-  app.get("/blah", function (req, res) {
-    console.log("blah route");
-    res.status(200).send(true);
-  });
+  // app.get("/blah", function (req, res) {
+  //   console.log("blah route");
+  //   res.status(200).send(true);
+  //});
   //Get all users
   // app.get("/api/users", function (req, res) {
   //   db.User.findAll({}).then(function (dbUser) {
@@ -103,7 +103,7 @@ module.exports = function (app) {
       time: req.body.timeInput,
       location: req.body.locationInput,
       description: req.body.descriptionInput,
-      //email: req.body.email,
+      email: req.body.email,
       fullname: req.body.fullname,
     })
       .then((dbEvent) => {

@@ -29,14 +29,34 @@ module.exports = function (app) {
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/members", isAuthenticated, function (req, res) {
-    //res.sendFile(path.join(__dirname, "../public/members.html"));
 
-    // res.render("index");
-    db.Event.findAll({}).then(function (dbEvents) {
+  //app.get("/members", isAuthenticated, function (req, res) {
+  //res.sendFile(path.join(__dirname, "../public/members.html"));
+
+  // res.render("index");
+  // db.Event.findAll({}).then(function (dbEvents) {
+  //   res.render("index", {
+  //     msg: "Welcome ",
+  //     events: dbEvents,
+  //   });
+  // });
+
+  app.get("/members", isAuthenticated, function (req, res) {
+    db.Event.findAll({}).then(function (dbEvent) {
+      let events = [];
+      //console.log("retrieved users: " + dbUser);
+
+      dbEvent.forEach(function (event) {
+        events.push({
+          name: event.name,
+          eventDate: event.eventDate,
+          time: event.time,
+          fullname: event.fullname,
+        });
+      });
       res.render("index", {
         msg: "Welcome ",
-        events: dbEvents,
+        events: events,
       });
     });
   });
@@ -59,7 +79,7 @@ module.exports = function (app) {
   app.get("/newevent", function (req, res, next) {
     db.User.findAll({}).then(function (dbUser) {
       let users = [];
-      console.log("retrieved users: " + dbUser);
+      //console.log("retrieved users: " + dbUser);
 
       dbUser.forEach(function (user) {
         users.push({

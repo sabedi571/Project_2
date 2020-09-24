@@ -62,7 +62,7 @@ $(document).ready(function () {
         $.post("/api/newevent", {
           eventInput: eventInput,
           dateInput: dateInput,
-          dateInput: timeInput,
+          timeInput: timeInput,
           locationInput: locationInput,
           descriptionInput: descriptionInput,
           email: email,

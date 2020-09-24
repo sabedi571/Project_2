@@ -72,9 +72,29 @@ module.exports = function (app) {
 
     // post new event with sequelize here
     // event will be sent on the request body (req.body)
-    db.Event.create(req.body)
+    //console.log("======= before create =======");
+    //console.log(req.body);
+    /**
+     * {
+        eventInput: 'asdf',
+        dateInput: 'fdsa',
+        timeInput: '1234',
+        locationInput: '6543',
+        descriptionInput: 'asdf',
+        fullname: 'undefined undefined'
+      }
+     */
+    db.Event.create({
+      name: req.body.eventInput,
+      eventDate: req.body.dateInput,
+      time: req.body.timeInput,
+      location: req.body.locationInput,
+      description: req.body.descriptionInput,
+      //email: req.body.email,
+      fullname: req.body.fullname,
+    })
       .then((dbEvent) => {
-        console.log(dbEvent);
+        //console.log(dbEvent);
         // res.render("newevent");
         res.redirect("/members");
       })

@@ -66,20 +66,36 @@ module.exports = function (app) {
   //   console.log("blah route");
   //   res.status(200).send(true);
   //});
+
   //Get all users
-  // app.get("/api/users", function (req, res) {
-  //   db.User.findAll({}).then(function (dbUser) {
-  //     res.json(dbUser);
-  //   });
-  // });
+  app.get("/api/users", function (req, res) {
+    db.User.findAll({}).then(function (dbUser) {
+      res.json(dbUser);
+    });
+  });
 
   //Get one user
-  // app.get("/api/users/:id", function (req, res) {
-  //   db.User.findOne({ where: { id: req.params.id } }).then(function (dbUser) {
-  //     res.json(dbUser);
-  //   });
-  // });
+  app.get("/api/users/:id", function (req, res) {
+    db.User.findOne({ where: { id: req.params.id } }).then(function (dbUser) {
+      res.json(dbUser);
+    });
+  });
 
+  // Get all events
+  app.get("/api/events", function (req, res) {
+    db.Event.findAll({}).then(function (dbEvent) {
+      res.json(dbEvent);
+    });
+  });
+
+  //Get one event
+  app.get("/api/events/:id", function (req, res) {
+    db.Event.findOne({ where: { id: req.params.id } }).then(function (dbEvent) {
+      res.json(dbEvent);
+    });
+  });
+
+  //Post/Save new event
   app.post("/api/newevent", function (req, res) {
     //res.sendFile(path.join(__dirname, "../public/members.html"));
 
@@ -115,18 +131,18 @@ module.exports = function (app) {
         res.status(501).json(err);
       });
   });
-  // app.post("/api/newevent", function (req, res) {
-  //   console.log(req.body);
-  //   db.Event.create({
-  //     name: req.body.eventInput,
-  //     eventDate: req.body.dateInput,
-  //     time: req.body.timeInput,
-  //     location: req.body.locationInput,
-  //     description: req.body.descriptionInput,
-  //     email: req.body.email,
-  //     fullname: req.body.fullname,
-  //   }).then(function (dbEvent) {
-  //     res.json(dbEvent);
+
+  //get invitees for event
+  // app.get("/api/newinvitee", function (req, res) {
+  //   db.Invitee.findAll({}).then(function (dbInvitee) {
+  //     res.json(dbInvitee);
+  //   });
+  // });
+
+  // //post invitees for event
+  // app.post("/api/newinvitee", function (req, res) {
+  //   db.Invitee.create(req.body).then(function (dbInvitee) {
+  //     res.json(dbInvitee);
   //   });
   // });
 };

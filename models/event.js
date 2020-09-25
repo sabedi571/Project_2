@@ -14,14 +14,14 @@ module.exports = function (sequelize, DataTypes) {
     fullname: DataTypes.STRING,
   });
 
-  //   Event.associate = function (models) {
-  //     Event.hasMany(models.Comment, {
-  //       onDelete: "cascade",
-  //     }),
-  //       Event.hasMany(models.Invitee, {n
-  //         onDelete: "cascade",
-  //       });
-  //   };
+  Event.associate = function (models) {
+    Event.hasMany(models.Comment, {
+      onDelete: "cascade",
+    }),
+      Event.hasMany(models.Invitee, {
+        onDelete: "cascade",
+      });
+  };
 
   return Event;
 };

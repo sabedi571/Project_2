@@ -103,7 +103,7 @@ module.exports = function (app) {
   app.get("/event/:id", function (req, res) {
     db.Event.findOne({
       where: { id: req.params.id },
-      //include: [db.Comment, db.Invitee],
+      include: [db.Comment, db.Invitee],
     }).then(function (dbEvent) {
       console.log(dbEvent.name);
       console.log(dbEvent.location);

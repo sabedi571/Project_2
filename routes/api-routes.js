@@ -125,7 +125,7 @@ module.exports = function (app) {
       .then((dbEvent) => {
         //console.log(dbEvent);
         // res.render("newevent");
-        res.redirect("/members");
+        res.json(dbEvent);
       })
       .catch((err) => {
         res.status(501).json(err);
@@ -133,16 +133,28 @@ module.exports = function (app) {
   });
 
   //get invitees for event
-  // app.get("/api/newinvitee", function (req, res) {
-  //   db.Invitee.findAll({}).then(function (dbInvitee) {
-  //     res.json(dbInvitee);
-  //   });
-  // });
+  app.get("/api/newinvitee", function (req, res) {
+    db.Invitee.findAll({}).then(function (dbInvitee) {
+      res.json(dbInvitee);
+    });
+  });
 
-  // //post invitees for event
-  // app.post("/api/newinvitee", function (req, res) {
-  //   db.Invitee.create(req.body).then(function (dbInvitee) {
-  //     res.json(dbInvitee);
-  //   });
-  // });
+  //post invitees for event
+  app.post("/api/newinvitee", function (req, res) {
+    db.Invitee.create(req.body).then(function (dbInvitee) {
+      res.json(dbInvitee);
+    });
+  });
+  //get all the comments inside events
+  app.get("/api/comments", function (req, res) {
+    db.Comment.findAll({}).then(function (dbComment) {
+      res.json(dbComment);
+    });
+  });
+  //posting comments inside events
+  app.post("/api/comments", function (req, res) {
+    db.Comment.create(req.body).then(function (dbComment) {
+      res.json(dbComment);
+    });
+  });
 };

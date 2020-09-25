@@ -116,9 +116,13 @@ module.exports = function (app) {
         location: dbEvent.location,
         description: dbEvent.description,
         fullname: dbEvent.fullname,
+        firstname: dbEvent.Invitees.firstname,
+        lastname: dbEvent.Invitees.lastname,
       };
       res.render("event", {
         sel_event: sel_event,
+        comment: dbEvent.Comments,
+        invitee: dbEvent.Invitees,
       });
     });
   });

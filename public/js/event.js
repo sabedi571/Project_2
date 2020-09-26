@@ -10,25 +10,25 @@ var API = {
         "Content-Type": "application/json",
       },
       type: "POST",
-      url: "../api/comments",
+      url: "/api/comments",
       data: JSON.stringify(data),
     });
   },
   getComments: function () {
     return $.ajax({
-      url: "../api/comments",
+      url: "/api/comments",
       type: "GET",
     });
   },
   getUserId: function () {
     return $.ajax({
-      url: "../api/user_data",
+      url: "/api/user_data",
       type: "GET",
     });
   },
   getEventId: function (id) {
     return $.ajax({
-      url: "../api/events",
+      url: "/api/events",
       type: "GET",
     });
   },
@@ -39,7 +39,7 @@ var commentSubmit = function (event) {
   event.preventDefault();
   var commentInput = $("#comment").val().trim();
   var id = $("#event-id").val();
-  $.get("../api/user_data").then(function (data) {
+  $.get("/api/user_data").then(function (data) {
     console.log(data);
 
     var input = {

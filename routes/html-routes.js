@@ -94,9 +94,9 @@ module.exports = function (app) {
         users: users, // updated AG
         //users: dbEvent.User,
       });
-      console.log("////////////");
-      console.log(users);
-      console.log("////////////");
+      //console.log("////////////");
+      //console.log(users);
+      //console.log("////////////");
     });
   });
 
@@ -104,23 +104,40 @@ module.exports = function (app) {
     db.Event.findOne({
       where: { id: req.params.id },
       include: [db.Comment, db.Invitee],
-    }).then(function (dbEvent) {
-      console.log(dbEvent.name);
-      console.log(dbEvent.location);
+    })
+      .then(function (dbEvent) {
+        //console.log(dbEvent);
+        //console.log(dbEvent.fullname);
+        //console.log(dbEvent.firstname);
+        let sel_event = {
+          id: dbEvent.id,
+          name: dbEvent.name,
+          eventDate: dbEvent.eventDate,
+          time: dbEvent.time,
+          location: dbEvent.location,
+          description: dbEvent.description,
+          fullname: dbEvent.fullname,
+        };
 
-      let sel_event = {
-        id: dbEvent.id,
-        name: dbEvent.name,
-        eventDate: dbEvent.eventDate,
-        time: dbEvent.time,
-        location: dbEvent.location,
-        description: dbEvent.description,
-        fullname: dbEvent.fullname,
-      };
-      res.render("event", {
-        sel_event: sel_event,
-      });
-    });
+        //console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        //console.log(dbEvent.dataValues);
+
+        //console.log(sel_event);
+        if (req.user) {
+          console.log("##############");
+          console.log(req.user);
+          console.log(req.user.firstname);
+          console.log(req.user.lastname);
+          console.log("##############");
+        }
+
+        res.render("event", {
+          sel_event: sel_event,
+          comment: dbEvent.Comments,
+          invitee: dbEvent.Invitees,
+        });
+      })
+      .catch((dbError) => console.error(dbError));
   });
 
   // Render 404 page for any unmatched routes

@@ -40,7 +40,8 @@
             <ul id="invitee-list" class="list-group-item">
                 {{#each invitee}}
                 <li>
-                    {{this.firstname}} {{this.lastname}}
+                    {{!-- {{this.firstname}} {{this.lastname}} --}}
+                    {{dataValues.firstname}} {{dataValues.lastname}}
                 </li>
                 {{/each}}
             </ul>
@@ -55,8 +56,8 @@
             <ul id="comment-list" class="list-group chat">
                 {{#each comment mode="prepend"}}
                 {{log this.body}}
-                <li data-id="{{this.id}}" class="list-group-item">
-                    <span class="commentColor">{{this.firstname}} {{this.lastname}}:</span> {{this.body}}
+                <li data-id="{{sel_event.id}}" class="list-group-item">
+                    <span>{{dataValues.username}}:</span> {{dataValues.body}}
                     {{!-- <a href="event/{{this.id}}">{{this.name}}</a> --}}
                 </li>
                 {{/each}}
@@ -65,9 +66,9 @@
     </div>
 </div>
 
-<input type="hidden" id="event-id" value={{event.id}} />
+<input type="hidden" id="event-id" value={{sel_event.id}} />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/events.js"></script>
+<script src="/js/event.js"></script>
 <script src="/js/members.js"></script>
 
 </div>
@@ -83,10 +84,3 @@
     <br>
 </div>
 <!-- to make card collapsible -->
-<script>
-    $(document).ready(function () {
-        $('.tabs').tabs();
-        $('.collapsible').collapsible()
-        console.log(event.movieDetails);
-    });
-</script>

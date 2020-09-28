@@ -8,39 +8,47 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   
 <section id="contact">
+	 <div class="container-fluid">
+        <div class="row ml-5 p-0">
+            <div class="column">
+            <a class="link-style" href="/logout">
+                Logout
+            </a>
+        </div>
+        </div>
 			<div class="section-content">
 				<h1 >Plan an event with <span class="content-header "> Econnect</span></h1>
-				<h3>Use our platform to plan any event and invite your loved one</h3>
+				<h3 class="subt">Use our platform to plan any event and invite your loved ones</h3>
 			</div>
 			<div class="contact-section">
-			<div class="container">
+			<div class="container-fluid shadow-lg w-50 p-5">
 				<form>
-					<div class="col-md-6 form-line">
+					<div class="col-md-12 form-line">
 			  			<div class="form-group">
-			  				<label for="event_name">Event Name</label>
+			  				<label for="event_name" class="form-text">Event Name</label>
 					    	<input type="text" class="form-control" id="eventname-input" placeholder=" Enter your Event eg. Birthday party, Picnic or a hangout ">
 				  		</div>
                         <div class="form-group">
-					    	<label for="event_date">Enter Date of your Event</label>
+					    	<label for="event_date" class="form-text">Enter Date of your Event</label>
 					    	<input type="date" class="form-control" id="eventdate-input" placeholder=" Enter Date">
 					  	</div>
 				  		<div class="form-group">
-					    	<label for="event_time">Enter time of your Event</label>
-					    	<input type="text" class="form-control" id="eventtime-input" placeholder=" Enter time">
+					    	<label for="event_time" class="form-text">Enter time of your Event</label>
+					    	<input type="time" class="form-control" id="eventtime-input" placeholder=" Enter time">
 					  	</div>	
 					  	<div class="form-group">
-					    	<label for="location">Location/Address</label>
+					    	<label for="location" class="form-text">Location/Address</label>
 					    	<input type="Address" class="form-control" id="location-input" placeholder="Location address">
 			  			</div>
                         <div class="form-group">
-					    	<label for="description">Describe details about your event</label>
+					    	<label for="description" class="form-text">Describe details about your event</label>
 					    	<input type="text" class="form-control" id="description-input" placeholder="Event Details" rows="4">
 			  			</div>
 
 			  		</div>
-			  		<div class="col-md-6">
+			  		<div class="col-md-12">
 			  			<div class="form-group">
-			  				<label for ="invited"> Invite your Friends & Family</label>
+			  				<label for ="invited" class="form-text"> Invite your Friends & Family</label>
 			  			 	<select multiple class="form-control" id="invited-input">
                                 {{#each users}}
                                 <option value="{{this.id}}">{{this.firstname}} {{this.lastname}}</option>
@@ -54,7 +62,7 @@
 			  			
 					</div>
 
-                    <a href="/members">← Back to the List of Events Page</a>
+                    <a class="link-style" href="/members">← Back to the List of Events Page</a>
                     
 
 				</form>

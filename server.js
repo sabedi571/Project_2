@@ -4,6 +4,7 @@ var express = require("express");
 var session = require("express-session");
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
+const path = require("path");
 
 var db = require("./models");
 // db.connect({
@@ -23,7 +24,7 @@ var PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 // We need to use sessions to keep track of our user's login status
 app.use(
   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })

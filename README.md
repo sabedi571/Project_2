@@ -4,6 +4,14 @@
 
 EConnect
 
+- [Link to the deployed application](https://project2-sa.herokuapp.com/)
+
+## Developers
+
+Alina Gorelik: models, back end
+Syed Abedi: front end, schema
+Nada Abulibdeh: front end, schema
+
 # Table of Content
 
 - [Description](#description)
@@ -17,25 +25,24 @@ EConnect
 - [Built With](#built-with)
 - [Repo](#repo)
 - [Demo](#demo)
-- [Developers](#developers)
 
 ## Description
 
-The main purpose of this application is to connect people together. In the world when people suddenly found themselves separated from their usual circle of friends, relatives and co-workers due to the COVID-19 pandemic, it is especially important to create small events that will enhance your life, spirit, and help you push through the tough experience. The application is to help people invite their friends, relatives, co-workers or neighbours for small events like bike rides, group workouts, walk through the parks or volunteering activities.It could be used to connect with people from your sport club, church or neighborhood.
+EConnect is a full-stack web application that uses the Sequelize ORM, a promise-based Node.js ORM for MySQL. It is an event logging platform that utilizes MySQL, Node.js, Express, Handlebars, Passport and the OMDB API. It utilizes the MVC design pattern; using Node and MySQL to query and route data in EConnect application, and Handlebars to generate HTML.
 
-EConnect is a full-stack web application that uses the Sequelize ORM, a promise-based Node.js ORM for MySQL. It is an event logging platform that utilizes MySQL, Node.js, Express, Handlebars, Passport and the OMDB API. It utilizes the MVC design pattern; using Node and MySQL to query and route data in Events App, and Handlebars to generate HTML.
+The main purpose of this application is to connect people together. In the world when people suddenly found themselves separated from their usual circle of friends, relatives and co-workers due to the COVID-19 pandemic, it is especially important to create small events that will enhance your life, spirit, and help you push through the tough experience. The application is to help people invite their friends, relatives, co-workers or neighbours for small events like bike rides, group workouts, walk through the parks or volunteering activities.It could be used to connect with people from your sport club, church or neighborhood.
 
 ## Functionality
 
-- This app requires users to sign up/create an account and log into the account subsequently. All user data is securely stored in mysql database with the password being hashed.
+- This app requires users to sign up/create an account and log into the account subsequently. All user data is securely stored in the mysql database with the password being hashed.
 
 - After signing-in, user is redirected to the home page that shows all the scheduled events and allows the authenticated user create a new event
 
-- User can view the detailed info for the event by clicking on the event name or using 'More about this event' button. He will be presented with the details as well as all the invitees and comments for the event.
+- Users can view the detailed info for the event by clicking on the event name or using 'More about this event' button. He will be presented with the details as well as all the invitees and comments for the event.
 
-- User can create a new event by using a "Create New Event" button. After that, he will be presented with a form to complete name, date, time, location, and the description for the event. User could invite any number of people who are also registered users for the app.
+- Users can create a new event by using a "Create New Event" button. After that, he will be presented with a form to complete name, date, time, location, and the description for the event. Users could invite any number of people who are also registered users for the app.
 
-- Each user is able to leave his comments on the event page that also serves as a message board for the event. For example, host can enter "Bring your own blankets" message for "Lunch in the Park" event and invitees can use the message board to RSVP the invitation or ask host to answer a question about the event.
+- Each user is able to leave his comments on the event page that also serves as a message board for the event. For example, an event host can enter a "Bring your own blankets" message for a "Lunch in the Park" event and invitees can use the message board to RSVP the invitation or ask the host to answer a question about the event.
 
 ## Database
 
@@ -53,7 +60,13 @@ INVITEE belongs to EVENT, COMMENT belongs to EVENT
 
 ## Development
 
-Created the MVC structure first and worked upon each element required.
+- Created the MVC structure first and worked upon each element required. Started with installing all the required dependencies, setting up the environmental variables and securing the sensitive data like password and database name by using DOTENV dependency and .ENV file. Made changes to config, models/index.js.
+
+- Collaborated on a database structure, started just with 2 tables: Users and Events, connected the models with 'one-to-many' association. Worked on the initial phase of the application that included user's authentication utilizing passport middleware, and front-end and back-end programming changes to enable the user create an event, store it in the database, and retrieve all the events stored.
+
+- After we were done with the programming of the initial phase, the second phase included the ability to invite people when the new event is created. With that, we had to add a new database model "Invitees" that is used to store the invitee's first and last name, email and event_id, which is a foreign key used to find all the invitees for an event. The Event model was modified to associate Event and Invitee models with one-to-many relationship: Event has multiple Invitees, Invitee belongs to the Event. Then front-end JavaScript programming was done to create ability to select invitees from the list of all the registered users, back-end code to send the selected invitees to the server and save the invitees in the Invitee table.
+
+- The third phase of the project included changes to allow users access any previously created event and create comments.For this phase, we created a new model called "Comments", and associated the new 'Comment' model with the 'Event' model (one Event can have multiple comments, Comment belongs to the event). Front and back end coding was completed to allow users to enter comments into the text box for the Event page, save the comments entered in the Comment table, and retrieve all the comments any time the event details are displayed.
 
 - node.js - https://nodejs.org/en/
 
@@ -106,3 +119,5 @@ To use this application locally:
 - [MySql](https://www.mysql.com/)
 
 ## Repo:
+
+https://github.com/sabedi571/Project_2

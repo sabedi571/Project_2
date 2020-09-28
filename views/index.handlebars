@@ -8,19 +8,27 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 <div class="container-fluid transparent shadow-lg " id ='contact2'>
+    <div class="container-fluid">
+        <div class="row ml-5 p-0">
+            <div class="column">
+            <a class="link-style" href="/logout">
+                Logout
+            </a>
+        </div>
+        </div>
     <div class="section-content">
 				<h1 class="section-header">Plan an event with <span class="content-header " data-wow-delay="0.2s" data-wow-duration="2s"> Econnect</span></h1>
 				<h3></h3>
 			
 <div class="row justify-content-center m-3">
         <div class="col-md-6 ">
-            <h2 >Welcome <span class="member-name"></span></h2>
+            <h3 class="subt">Welcome <span class="member-name text-capitalize subt"></span></h3>
         </div>
     
     </div>
-    <div class="row justify-content-center m-2">
+    <div class="row justify-content-center m-0 p-0">
         <div class="column ">
-            <button class="btn btn-default shadow-lg " ><a href="/newevent" id="newEventBtn">Create a New Event</a></button>
+            <button class="btn btn-light shadow-lg  " ><a href="/newevent" id="newEventBtn">Create a New Event</a></button>
         </div>
     </div>
 
@@ -29,17 +37,17 @@
 
 <br>
 <br>
-<div class= "container-fluid rounded justify-content-center text-center bg-transparent shadow-lg w-50 p-5 ">
-    <div class="card rounded m-5 p-0">
+<div class= "container-fluid rounded justify-content-center text-center bg-transparent shadow-lg w-50 p-5 text1 ">
+    <div class="card rounded  m-5 p-0">
 <ul id="events-list" >
     {{#each events}}
     <li data-id="{{this.id}}" class="list-group-item">
-        <h5 class="card-header bg-warning shadow-lg "><strong>Event Name : </strong><a id="namelink" href="event/{{this.id}}">{{this.name}}</a></h5>
+        <h5 class="card-header bg-warning shadow-lg "><strong>Event Name : </strong><a class="link2"id="namelink" href="event/{{this.id}}">{{this.name}}</a></h5>
         {{!-- <p><strong>Date and Time :</strong> {{this.dateAndTime}}</p> --}}
-        <div class="card-body ">
+        <div class="card-body rounded">
         <h5 class="card-text text-dark" > <strong>Date :</strong> {{this.eventDate}}</p>
         <p class="card-text text-dark"><strong>Time :</strong> {{this.time}}</p>
-        <p class="card-text text-dark"><strong >Host :</strong> {{this.fullname}}</p>
+        <p class="card-text text-dark text-capitalize"><strong >Host :</strong> {{this.fullname}}</p>
 
         <button class="btn btn-dark shadow-lg"><a href="event/{{this.id}}" id="moreEventBtn">
                 More about this Event</a></button>

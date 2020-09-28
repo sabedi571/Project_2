@@ -11,13 +11,22 @@
   
 
 <div class="container-fluid " id="contact">
+     <div class="container-fluid">
+        <div class="row ml-5 p-0">
+            <div class="column">
+            <a class="link-style" href="/logout">
+                Logout
+            </a>
+        </div>
+        </div>
     <div class="section-content">
 				<h1 class="section-header">Plan an event with <span class="content-header " data-wow-delay="0.2s" data-wow-duration="2s"> Econnect</span></h1>
 				<h3></h3>
 			
+			
 <div class="row justify-content-center m-5">
         <div class="col-md-6 ">
-            <h2 >Welcome <span class="member-name"></span></h2>
+            <h3 class="subt">Welcome <span class="member-name text-capitalize subt"></span></h3>
         </div>
     
     </div>
@@ -29,14 +38,14 @@
                   
                     <div class="card-content justify-content-center p-0">
                         <h2 class="shadow-lg">
-                            <p class="card-header"id="namelink">{{sel_event.name}}</p>
+                            <p class="card-header bg-dark subt justify-content-left"id="namelink">{{sel_event.name}}</p>
                         </h2>
                     </div>
                 
-                <div class="card-body bg-white shadow-lg ">
+                <div class="card-body bg-white shadow-lg border rounded">
                     
                 
-                <div id="grid-container ">
+                <div class= "text1" id="grid-container ">
                     <div class="card-text text-dark"id="test7"><b>Host: </b> {{sel_event.fullname}}</div>
                     <div class="text-dark" id="test4"><b>Time: </b> {{sel_event.time}}</div>
                     <div class="text-dark" id="test5"><b>Location: </b>{{sel_event.location}}</div>
@@ -50,38 +59,38 @@
     </div>
    </div>
 
-    <div class="row">
+    <div class="row ">
         <div class="col-md-12" id="center">
         
-                <h3 class="justify-content-left" for="comment">Invitees</h3>
-                <ul id="invitee-list" class="list-group-item ">
+                <h3 class="justify-content-left subt1 mt-5" for="comment">Invitees</h3>
+                <ul id="invitee-list" class="list-group-item border rounded shadow-lg">
                     {{#each invitee}}
-                    <li class="text-dark">
+                    <li class="text-dark text1 p-1">
                         {{!-- {{this.firstname}} {{this.lastname}} --}}
                         {{dataValues.firstname}} {{dataValues.lastname}}
                     </li>
                     {{/each}}
                 </ul>
            
-            <form class="clearfix mb-4" action="POST">
+            <form class="clearfix  mb-4" action="POST">
                 <div class="form-group">
-                    <h3 for="comment">Comments</h3>
-                    <textarea class="form-control" id="comment" aria-describedby="example-description"
+                    <h3 class="justify-content-left subt1 mt-5" for="comment">Comments</h3>
+                    <textarea class="form-control shadow-lg" id="comment" aria-describedby="example-description"
                         placeholder="Whats on your mind?"></textarea>
                 </div>
-                <button id="submitComment" class="btn btn-primary float-right">Submit</button>
+                <button id="submitComment" class="btn btn-dark text-white float-right shadow-lg">Submit</button>
             </form>
-            <ul id="comment-list" class="list-group chat">
+            <ul id="comment-list" class="list-group chat mb-5 border rounded">
                 {{#each comment mode="prepend"}}
                 {{log this.body}}
-                <li data-id="{{sel_event.id}}" class="list-group-item text-dark">
-                    <span>{{dataValues.username}}:</span> {{dataValues.body}}
+                <li data-id="{{sel_event.id}}" class="list-group-item text-dark text1 shadow-lg m-1">
+                    <span class="font-weight-bold text-capitalize text-danger ">{{dataValues.username}}:</span> {{dataValues.body}}
                     {{!-- <a href="event/{{this.id}}">{{this.name}}</a> --}}
                 </li>
                 {{/each}}
 
             </ul>
-            <a href="/members">← Back To the List of the Events</a>
+            <a class="link-style m-5" href="/members">← Back To the List of the Events</a>
         </div>
     </div>
     </div>
@@ -95,32 +104,3 @@
 </div>
 
 
-{{!-- 
-<style>
-    .container {
-        font-family: 'Teko', sans-serif;
-        background: -webkit-linear-gradient(to left, gold , #25892c); 
-        background: linear-gradient(to top, gold , #81d50c); 
-        width: 100%;
-        height: 1000px;
-        text-align: center;
-    }
-
-    .card-content {
-        font-family: 'Oleo Script', cursive;
-        color: #7e775a;
-        font-size: 50px;
-        text-align: center;
-    }
-
-    .grid-container {
-        font-family: 'Times New Roman', Times, serif;
-        color: #7e775a;
-        font-size: 50px;
-        text-align: center;
-    }
-
-    .invite {
-        text-align: center;
-    }
-</style> --}}

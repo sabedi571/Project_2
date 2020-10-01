@@ -14,7 +14,7 @@ var db = {};
 //   config.password,
 //   config
 // );
-
+//changed config
 if (config.use_env_variable) {
   var sequelize = new Sequelize(process.env[config.use_env_variable]);
 } else {

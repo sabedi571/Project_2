@@ -1,106 +1,113 @@
-
-
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/css?family=Oleo+Script:400,700" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Teko:400,700" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  
-  
 
-<div class="container-fluid " id="contact">
-     <div class="container-fluid">
+
+
+<div class="container-fluid">
+    <div class="container-fluid">
         <div class="row ml-5 p-0">
             <div class="column">
-            <a class="link-style" href="/logout">
-                Logout
-            </a>
+                <a class="link-style" href="/logout">
+                    Logout
+                </a>
+            </div>
         </div>
+        <div class="section-content">
+            <h1 class="section-header">Plan an event with <span class="content-header " data-wow-delay="0.2s"
+                    data-wow-duration="2s"> Econnect</span></h1>
+            <h3></h3>
+
+
+            <div class="row justify-content-center m-5">
+                <div class="col-md-6 ">
+                    <h3 class="subt">Welcome <span class="member-name text-capitalize subt"></span></h3>
+                </div>
+
+            </div>
         </div>
-    <div class="section-content">
-				<h1 class="section-header">Plan an event with <span class="content-header " data-wow-delay="0.2s" data-wow-duration="2s"> Econnect</span></h1>
-				<h3></h3>
-			
-			
-<div class="row justify-content-center m-5">
-        <div class="col-md-6 ">
-            <h3 class="subt">Welcome <span class="member-name text-capitalize subt"></span></h3>
-        </div>
-    
-    </div>
-       </div>
-<div class="container-fluid shadow-lg justify-content-center w-50 p-5">
-   <div class=" card ">
-    <div class="row justify-content-center ">
-        <div class="col-md-12">      
-                  
-                    <div class="card-content justify-content-center p-0">
-                        <h2 class="shadow-lg">
-                            <p class="card-header bg-dark subt justify-content-left"id="namelink">{{sel_event.name}}</p>
-                        </h2>
+        <div id="contact" class="container-fluid shadow-lg justify-content-center w-50 p-5">
+            <div class=" card ">
+                <div class="row justify-content-center ">
+                    <div class="col-md-12">
+
+                        <div class="card-content justify-content-center p-0">
+                            <h2 class="shadow-lg">
+                                <p class="card-header bg-dark subt justify-content-left" id="namelink">
+                                    {{sel_event.name}}</p>
+                            </h2>
+                        </div>
+
+                        <div class="card-body bg-white shadow-lg border rounded">
+
+
+                            <div class="text1" id="grid-container ">
+                                <div class="card-text text-dark" id="test7"><b>Host: </b> {{sel_event.fullname}}</div>
+                                <br>
+                                <div class="text-dark" id="test4"><b>Time: </b> {{sel_event.time}}</div><br>
+                                <div class="text-dark" id="test5"><b>Location: </b>{{sel_event.location}}</div><br>
+                                <div class="text-dark" id="test6"><b>Description: </b> {{sel_event.description}}</div>
+
+                            </div>
+                        </div>
+
+
                     </div>
-                
-                <div class="card-body bg-white shadow-lg border rounded">
-                    
-                
-                <div class= "text1" id="grid-container ">
-                    <div class="card-text text-dark"id="test7"><b>Host: </b> {{sel_event.fullname}}</div>
-                    <div class="text-dark" id="test4"><b>Time: </b> {{sel_event.time}}</div>
-                    <div class="text-dark" id="test5"><b>Location: </b>{{sel_event.location}}</div>
-                    <div class="text-dark" id="test6"><b>Description: </b> {{sel_event.description}}</div>
-
-                </div> 
                 </div>
-           
+            </div>
 
+            <div class="row ">
+                <div class="col-md-12" id="center">
+
+                    <h3 class="justify-content-left subt1 mt-5" for="comment">Invitees</h3>
+                    <ul id="invitee-list" class="list-group-item border rounded shadow-lg">
+                        {{#each invitee}}
+                        <li class="text-dark text1 p-1">
+                            {{!-- {{this.firstname}} {{this.lastname}} --}}
+                            {{dataValues.firstname}} {{dataValues.lastname}}
+                        </li>
+                        {{/each}}
+                    </ul>
+
+                    <form class="clearfix  mb-4" action="POST">
+                        <div class="form-group">
+                            <h3 class="justify-content-left subt1 mt-5" for="comment">Comments</h3>
+                            <textarea class="form-control shadow-lg" id="comment" aria-describedby="example-description"
+                                placeholder="Whats on your mind?"></textarea>
+                        </div>
+                        <button id="submitComment" class="btn btn-dark text-white float-right shadow-lg">Submit</button>
+                    </form>
+                    <ul id="comment-list" class="list-group chat mb-5 border rounded">
+                        {{#each comment mode="prepend"}}
+                        {{log this.body}}
+                        <li data-id="{{sel_event.id}}" class="list-group-item text-dark text1 shadow-lg m-1">
+                            <span class="font-weight-bold text-capitalize text-danger ">{{dataValues.username}}:</span>
+                            {{dataValues.body}}
+                            {{!-- <a href="event/{{this.id}}">{{this.name}}</a> --}}
+                        </li>
+                        {{/each}}
+
+                    </ul>
+                    <a class="link-style m-5" href="/members">← Back To the List of the Events</a>
+                </div>
+            </div>
         </div>
     </div>
-   </div>
 
-    <div class="row ">
-        <div class="col-md-12" id="center">
-        
-                <h3 class="justify-content-left subt1 mt-5" for="comment">Invitees</h3>
-                <ul id="invitee-list" class="list-group-item border rounded shadow-lg">
-                    {{#each invitee}}
-                    <li class="text-dark text1 p-1">
-                        {{!-- {{this.firstname}} {{this.lastname}} --}}
-                        {{dataValues.firstname}} {{dataValues.lastname}}
-                    </li>
-                    {{/each}}
-                </ul>
-           
-            <form class="clearfix  mb-4" action="POST">
-                <div class="form-group">
-                    <h3 class="justify-content-left subt1 mt-5" for="comment">Comments</h3>
-                    <textarea class="form-control shadow-lg" id="comment" aria-describedby="example-description"
-                        placeholder="Whats on your mind?"></textarea>
-                </div>
-                <button id="submitComment" class="btn btn-dark text-white float-right shadow-lg">Submit</button>
-            </form>
-            <ul id="comment-list" class="list-group chat mb-5 border rounded">
-                {{#each comment mode="prepend"}}
-                {{log this.body}}
-                <li data-id="{{sel_event.id}}" class="list-group-item text-dark text1 shadow-lg m-1">
-                    <span class="font-weight-bold text-capitalize text-danger ">{{dataValues.username}}:</span> {{dataValues.body}}
-                    {{!-- <a href="event/{{this.id}}">{{this.name}}</a> --}}
-                </li>
-                {{/each}}
-
-            </ul>
-            <a class="link-style m-5" href="/members">← Back To the List of the Events</a>
-        </div>
-    </div>
-    </div>
-</div>
-
-<input type="hidden" id="event-id" value={{sel_event.id}} />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/event.js"></script>
-<script src="/js/members.js"></script>
+    <input type="hidden" id="event-id" value={{sel_event.id}} />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/js/event.js"></script>
+    <script src="/js/members.js"></script>
 
 </div>
-
-

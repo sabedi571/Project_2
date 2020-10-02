@@ -1,75 +1,81 @@
-
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+	integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+	crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+	integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+	crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/css?family=Oleo+Script:400,700" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Teko:400,700" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  
-<section id="contact">
-	 <div class="container-fluid">
-        <div class="row ml-5 p-0">
-            <div class="column">
-            <a class="link-style" href="/logout">
-                Logout
-            </a>
-        </div>
-        </div>
-			<div class="section-content">
-				<h1 >Plan an event with <span class="content-header "> Econnect</span></h1>
-				<h3 class="subt">Use our platform to plan any event and invite your loved ones</h3>
-			</div>
-			<div class="contact-section">
-			<div class="container-fluid shadow-lg w-50 p-5">
-				<form>
-					<div class="col-md-12 form-line">
-			  			<div class="form-group">
-			  				<label for="event_name" class="form-text">Event Name</label>
-					    	<input type="text" class="form-control" id="eventname-input" placeholder=" Enter your Event eg. Birthday party, Picnic or a hangout ">
-				  		</div>
-                        <div class="form-group">
-					    	<label for="event_date" class="form-text">Enter Date of your Event</label>
-					    	<input type="date" class="form-control" id="eventdate-input" placeholder=" Enter Date">
-					  	</div>
-				  		<div class="form-group">
-					    	<label for="event_time" class="form-text">Enter time of your Event</label>
-					    	<input type="time" class="form-control" id="eventtime-input" placeholder=" Enter time">
-					  	</div>	
-					  	<div class="form-group">
-					    	<label for="location" class="form-text">Location/Address</label>
-					    	<input type="Address" class="form-control" id="location-input" placeholder="Location address">
-			  			</div>
-                        <div class="form-group">
-					    	<label for="description" class="form-text">Describe details about your event</label>
-					    	<input type="text" class="form-control" id="description-input" placeholder="Event Details" rows="4">
-			  			</div>
 
-			  		</div>
-			  		<div class="col-md-12">
-			  			<div class="form-group">
-			  				<label for ="invited" class="form-text"> Invite your Friends & Family</label>
-			  			 	<select multiple class="form-control" id="invited-input">
-                                {{#each users}}
-                                <option value="{{this.id}}">{{this.firstname}} {{this.lastname}}</option>
-                                {{/each}}
-                            </select>
-                        <br /> 
-			  			<div>
-
-			  				<button type="submit" id="newevent" class="btn btn-default submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>  Invite</button>
-			  			</div>
-			  			
+{{!-- <section id="contact"> --}}
+<div class="container-fluid">
+	<div class="row ml-5 p-0">
+		<div class="column">
+			<a class="link-style" href="/logout">
+				Logout
+			</a>
+		</div>
+	</div>
+	<div class="section-content">
+		<h1>Plan an event with <span class="content-header "> Econnect</span></h1>
+		<h3 class="subt">Use our platform to plan any event and invite your loved ones</h3>
+	</div>
+	<div class="contact-section">
+		<div id="contact" class="container-fluid shadow-lg w-50 p-5">
+			<form>
+				<div class="col-md-12 form-line">
+					<div class="form-group">
+						<label for="event_name" class="form-text">Event Name</label>
+						<input type="text" class="form-control" id="eventname-input"
+							placeholder=" Enter your Event eg. Birthday party, Picnic or a hangout ">
+					</div>
+					<div class="form-group">
+						<label for="event_date" class="form-text">Enter Date of your Event</label>
+						<input type="date" class="form-control" id="eventdate-input" placeholder=" Enter Date">
+					</div>
+					<div class="form-group">
+						<label for="event_time" class="form-text">Enter time of your Event</label>
+						<input type="time" class="form-control" id="eventtime-input" placeholder=" Enter time">
+					</div>
+					<div class="form-group">
+						<label for="location" class="form-text">Location/Address</label>
+						<input type="Address" class="form-control" id="location-input" placeholder="Location address">
+					</div>
+					<div class="form-group">
+						<label for="description" class="form-text">Describe details about your event</label>
+						<input type="text" class="form-control" id="description-input" placeholder="Event Details"
+							rows="4">
 					</div>
 
-                    <a class="link-style" href="/members">← Back to the List of Events Page</a>
-                    
+				</div>
+				<div class="col-md-12">
+					<div class="form-group">
+						<label for="invited" class="form-text"> Invite your Friends & Family</label>
+						<select multiple class="form-control" id="invited-input">
+							{{#each users}}
+							<option value="{{this.id}}">{{this.firstname}} {{this.lastname}}</option>
+							{{/each}}
+						</select>
+						<br />
+						<div>
 
-				</form>
-			</div>
-		</section>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="js/newevent.js"></script>
+							<button type="submit" id="newevent" class="btn btn-default submit"><i
+									class="fa fa-paper-plane" aria-hidden="true"></i> Invite</button>
+						</div>
+
+					</div>
+
+					<a class="link-style" href="/members">← Back to the List of Events Page</a>
 
 
-
+			</form>
+		</div>
+		{{!-- </section> --}}
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script type="text/javascript" src="js/newevent.js"></script>

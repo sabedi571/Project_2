@@ -5,12 +5,15 @@ form.login {
 body {
   line-height: 1.5em;
   text-align: center;
-  font-family: "Noto Sans", sans-serif, "Roboto", sans-serif;
+  /* font-family: "Noto Sans", sans-serif, "Roboto", sans-serif; */
   font-size: 1em;
-  color: gold;
+  font-family: "Teko", sans-serif;
+  /* color: gold; */
    background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  background: -webkit-linear-gradient(to left, #abc234, #f5f262);
+  background: linear-gradient(to left, #b58304, #c8d50c);
 }
 
 .card {
@@ -158,7 +161,7 @@ h1:hover {
   font-family: 'Open Sans', sans-serif;
   font-size: 20px;
   color: rgb(252, 249, 249);
-  
+  /* text-align: center; */
 }
 
 .link2{

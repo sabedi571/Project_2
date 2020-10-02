@@ -26,17 +26,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static("public"));
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
 // We need to use sessions to keep track of our user's login status
 app.use(
   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
 );
 app.use(passport.initialize());
-app.use(passport.session());
-
+app.use(passport.session()
 // Handlebars: code inserted by AG 9/21/20
 app.engine(
   "handlebars",
@@ -52,7 +48,7 @@ require("./routes/html-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success
 //db.sequelize.sync({ force: true }).then(function () {
-db.sequelize.sync({ force: true }).then(function () {
+db.sequelize.sync({ force: false }).then(function () {
   app.listen(PORT, function () {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",

@@ -16,7 +16,7 @@ var db = {};
 // );
 //changed config
 if (config.use_env_variable) {
-  var sequelize = new Sequelize(process.env[config.use_env_variable]);
+  var sequelize = new Sequelize(process.env[config.use_env_variable],config.dialect);
 } else {
   var sequelize = new Sequelize(
     config.database,
